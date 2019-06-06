@@ -2,6 +2,7 @@ package com.example.splitbillapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
         peopleTextEdit = (EditText) findViewById(R.id.peopleTextEdit);
         priceTextEdit = (EditText) findViewById(R.id.priceTextEdit);
         calcBtn = (Button) findViewById(R.id.calcBtn);
+
+        calcBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, resultdisplayActivity.class));
+            }
+        });
 
         peopleTextEdit.addTextChangedListener(inputTextWatcher);
         priceTextEdit.addTextChangedListener(inputTextWatcher);
